@@ -1,0 +1,74 @@
+" Chris Sun's vimrc file
+" An example for a vimrc file.
+"
+" Maintainer:	Bram Moolenaar <Bram@vim.org>
+" Last change:	2008 Dec 17
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.vimrc
+"	      for Amiga:  s:.vimrc
+"  for MS-DOS and Win32:  $VIM\_vimrc
+"	    for OpenVMS:  sys$login:.vimrc
+
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" No backup files (a.txt~) or swap files
+set nobackup
+
+" For swap files (a.txt.swp), place them in the /tmp directory
+set directory=/tmp
+
+" Make tabs only 2 spaces.
+set expandtab
+set tabstop=2 
+set softtabstop=2 
+set shiftwidth=2
+
+" Set the tag file
+set tags=./tags;
+
+" Make the background black and the foreground white
+set background=dark
+
+" Show line numbers
+set number
+
+" Enable file type detection and do language-dependent indenting.
+filetype plugin indent on
+
+" To navigate between VIM windows, normal one uses
+" Ctrl-w then (h,j,k,l or arrow keys)
+" instead use Ctrl-h, Ctrl-j, Ctrl-k, Ctrl-l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Open new split panes to right and bottom, which feels more natural than
+" Vim’s default:
+set splitbelow
+set splitright
+
+

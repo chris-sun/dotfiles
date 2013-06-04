@@ -1,0 +1,28 @@
+# Updating and viewing this file
+alias vaa="vi ~/dotfiles/bash/alias"
+alias saa="source ~/dotfiles/bash/alias"
+alias vvv="vim ~/.vimrc"
+
+# changing directories
+alias cdo="cd ~/work/open_source"
+alias cdr="cd ~/work/closed_source/ruby"
+alias cdb="cd ~/work/backbone_js_rails"
+alias cde="cd ~/work/backbone_js_rails/example_app"
+alias cdg="cd ~/work/guest_list"
+alias cdw="cd ~/work/open_source/rails_projects/wedding_site"
+alias cdtt="cd /Users/chrissun/work/tendertree/carelicious"
+
+# Rails aliases
+alias be="bundle exec"
+alias bers="bundle exec rails server"
+alias sole="bundle exec rails console"
+alias rk="bundle exec rake"
+
+# Git aliases
+alias gst="git status"
+alias gco="git commit -m"
+alias gpo="echo Running git pull origin BRANCH; git rev-parse --abbrev-ref HEAD | xargs git pull origin"
+alias gps="echo Running git push origin BRANCH; git rev-parse --abbrev-ref HEAD | xargs git push origin"
+
+# Random
+alias ptest="ping www.google.com"

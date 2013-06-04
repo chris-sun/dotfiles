@@ -1,0 +1,17 @@
+function parse_git_branch {
+  git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+
+# Some RVM stuff
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Prompt
+export PS1="[\h \w]\$(parse_git_branch)$ "
+
+# Edit the command line using vi
+set -o vi
+
+# Read the other stuff
+source ~/dotfiles/bash/alias
