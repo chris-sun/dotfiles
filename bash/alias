@@ -26,3 +26,4 @@ alias gps="echo Running git push origin BRANCH; git rev-parse --abbrev-ref HEAD 
 
 # Random
 alias ptest="ping www.google.com"
+
