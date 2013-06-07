@@ -1,3 +1,4 @@
+#!/bin/sh
 # After downloading the dotfiles directory
 # run this script (setup.sh)
 # to create symlinks to some files in this directory
