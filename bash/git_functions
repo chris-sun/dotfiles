@@ -1,0 +1,11 @@
+function greset {
+  if [ $# -ne 1 ]
+  then
+    echo "greset requires one argument"
+  else
+    echo "git checkout -- $1"
+    echo "git checkout HEAD $1"
+    git checkout -- $1
+    git checkout HEAD $1
+  fi
+}

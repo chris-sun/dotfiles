@@ -15,3 +15,6 @@ set -o vi
 
 # Read the other stuff
 source ~/dotfiles/bash/alias
+
+# Some git related functions
+source ~/dotfiles/bash/git_functions
