@@ -9,3 +9,22 @@ function greset {
     git checkout HEAD $1
   fi
 }
+
+# Add only the modified files to be staged
+function gaddmod {
+  git status | grep modified | awk '{print $3}' | xargs git add
+}
+
+# Git pull the current branch
+function gpl {
+  BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
+  echo "Running git pull origin ${BRANCH}"
+  git pull origin ${BRANCH}
+}
+
+# Git push the current branch
+function gps {
+  BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
+  echo "Running git push origin ${BRANCH}"
+  git push origin ${BRANCH}
+}

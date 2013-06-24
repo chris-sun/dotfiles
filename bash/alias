@@ -21,8 +21,8 @@ alias rk="bundle exec rake"
 # Git aliases
 alias gst="git status"
 alias gco="git commit -m"
-alias gpl="echo Running git pull origin BRANCH; git rev-parse --abbrev-ref HEAD | xargs git pull origin"
-alias gps="echo Running git push origin BRANCH; git rev-parse --abbrev-ref HEAD | xargs git push origin"
+#alias gpl="echo Running git pull origin BRANCH; git rev-parse --abbrev-ref HEAD | xargs git pull origin"
+#alias gps="echo Running git push origin BRANCH; git rev-parse --abbrev-ref HEAD | xargs git push origin"
 
 # Random
 alias ptest="ping www.google.com"
