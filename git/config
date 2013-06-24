@@ -1,0 +1,23 @@
+# Stuff below makes "diff", "status" commands look nice
+# Taken from
+# http://rafaelsteil.com/2011/11/17/setting-up-git-colors-in-the-terminal/
+[color]
+branch = auto
+diff = auto
+status = auto
+
+[color "branch"]
+current = yellow reverse
+local = yellow
+remote = green
+
+[color "diff"]
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+
+[color "status"]
+added = yellow
+changed = green
+untracked = cyan
