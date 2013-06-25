@@ -1,14 +1,14 @@
 " Chris Sun's vimrc file
 " An example for a vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Current plugins installed
+" https://github.com/tpope/vim-pathogen
+" https://github.com/tpope/vim-rails
+" http://www.vim.org/scripts/script.php?script_id=2540
+
+" Needed for pathogen.vim
+" See https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
