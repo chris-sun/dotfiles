@@ -1,12 +1,15 @@
 function greset {
-  if [ $# -ne 1 ]
+  if [ $# -lt 1 ]
   then
-    echo "greset requires one argument"
+    echo "greset requires at least one argument"
   else
-    echo "git checkout -- $1"
-    echo "git checkout HEAD $1"
-    git checkout -- $1
-    git checkout HEAD $1
+    for f in $@
+    do
+      echo "git checkout -- $f"
+      echo "git checkout HEAD $f"
+      git checkout -- $f
+      git checkout HEAD $f
+    done
   fi
 }
 

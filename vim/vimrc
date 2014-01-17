@@ -2,9 +2,16 @@
 " An example for a vimrc file.
 "
 " Current plugins installed
+" A way to manage 'runtimepath' and vim plugins
 " https://github.com/tpope/vim-pathogen
+" Keyboard shortcuts for Rails, rake, rspec
 " https://github.com/tpope/vim-rails
+" SnipMate
 " http://www.vim.org/scripts/script.php?script_id=2540
+" Quickly comment out a section of code
+" https://github.com/tomtom/tcomment_vim
+" % key can find matching if/else/end, def/end, class/end, etc.
+" https://github.com/edsono/vim-matchit
 
 " Needed for pathogen.vim
 " See https://github.com/tpope/vim-pathogen
@@ -52,10 +59,10 @@ set tags=./tags;
 " Make the background black and the foreground white
 set background=dark
 
-" Show line numbers
+" Show line numbers on left column
 set number
 
-" Enable file type detection and do language-dependent indenting.
+" Enable file type detection and use language-dependent indenting.
 filetype plugin indent on
 
 " To navigate between VIM windows, normal one uses
@@ -71,3 +78,46 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" For the autoTag.vim plugin to work
+" need to source the file
+" source autoTag.vim
+"
+
+" Use ack as the program for searching
+" Download from http://beyondgrep.com/
+set grepprg=ack
+
+" Assigning the leader key
+let mapleader = ","
+
+" Alias ,cc for the :TComment command which comments out lines
+map <Leader>cc :TComment<CR> 
+
+" Since the rails-vim plugin is installed, have some aliases
+" for common commands
+map <Leader>u :Runittest<cr>
+map <Leader>vc :RVcontroller<cr>
+map <Leader>vf :RVfunctional<cr>
+map <Leader>vu :RVunittest<CR>
+map <Leader>vm :RVmodel<cr>
+map <Leader>vv :RVview<cr>
+
+" taken from r00k's vimrc
+" open the vimrc
+map <Leader>vi :tabe ~/.vimrc<CR>
+
+" case-insensitve search
+set ignorecase
+" case-senstivie search if search pattern has uppercase letters
+set smartcase
+
+function! ToggleNumMode()
+  if(&rnu == 1)
+    set nu
+  else
+    set rnu
+  endif
+endfunc
+
+" Toggle between relative and absolute line numbers
+nnoremap <Leader>n :call ToggleNumMode()<CR>
