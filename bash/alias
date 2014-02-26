@@ -13,7 +13,7 @@ alias cda="cd ~/work/camazon"
 
 alias cdb="cd ~/work/backbone_js_rails"
 alias cde="cd ~/work/backbone_js_rails/example_app"
-alias cdg="cd ~/work/guest_list"
+alias cdg="cd ~/work/guidespark2"
 alias cdgeo="cd ~/work/thoughtbot/geocoding-on-rails/example_app"
 alias cdh="cd ~/work/closed_source/rails/thoughtbot/hashtag"
 alias cdw="cd ~/work/open_source/rails_projects/wedding_site"
@@ -40,7 +40,7 @@ alias gd="git diff"
 alias gpom="git pull origin master ; git fetch"
 
 # Application aliases
-alias mm="mvim"
+# alias mm="mvim"
 # Update the ctags file (assuming a Rails project)
 alias ccc="ctags -R -a --exclude=log --exclude=tmp *"
 

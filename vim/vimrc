@@ -2,24 +2,54 @@
 " An example for a vimrc file.
 "
 " Current plugins installed
-" A way to manage 'runtimepath' and vim plugins
-" https://github.com/tpope/vim-pathogen
-" Keyboard shortcuts for Rails, rake, rspec
-" https://github.com/tpope/vim-rails
 " SnipMate
 " http://www.vim.org/scripts/script.php?script_id=2540
-" Quickly comment out a section of code
-" https://github.com/tomtom/tcomment_vim
 " % key can find matching if/else/end, def/end, class/end, etc.
 " https://github.com/edsono/vim-matchit
-
-" Needed for pathogen.vim
-" See https://github.com/tpope/vim-pathogen
-execute pathogen#infect()
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" " alternatively, pass a path where Vundle should install bundles
+" "let path = '~/some/path/here'
+" "call vundle#rc(path)
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+""""""""""""""""""""""""
+" List of vim plugins
+""""""""""""""""""""""""
+" Keyboard shortcuts for Rails
+Bundle 'tpope/vim-rails.git'
+" Quickly comment out a section of code
+Bundle 'tomtom/tcomment_vim.git'
+" Can quickly find matching if/else/end, def/end, class/end, etc.
+" by hitting the % key
+Bundle 'edsono/vim-matchit.git'
+" Color scheme - Solarized (http://ethanschoonover.com/solarized)
+Bundle 'altercation/vim-colors-solarized.git'
+
+" Scripts from http://vim-scripts.org/vim/scripts.html
+Bundle 'snipMate'
+Bundle 'AutoTag'
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+
+" Enable file type detection and use language-dependent indenting.
+filetype plugin indent on
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -61,9 +91,6 @@ set background=dark
 
 " Show line numbers on left column
 set number
-
-" Enable file type detection and use language-dependent indenting.
-filetype plugin indent on
 
 " To navigate between VIM windows, normal one uses
 " Ctrl-w then (h,j,k,l or arrow keys)

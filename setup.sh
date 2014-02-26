@@ -4,6 +4,8 @@
 # to create symlinks to some files in this directory
 DOTFILES_DIR=`pwd`
 
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
 cd ~
 ln -s ${DOTFILES_DIR} dotfiles
 ln -s ~/dotfiles/bash/bash_profile .bash_profile
