@@ -15,7 +15,15 @@ export PS1="[\@ \w \[\033[1;37m\]\$(parse_git_branch)\[\033[0m\]]$ "
 set -o vi
 
 # Read the other stuff
-source ~/dotfiles/bash/alias
+if [ -f ~/dotfiles/bash/alias ] ; then
+  source ~/dotfiles/bash/alias
+fi
 
 # Some git related functions
-source ~/dotfiles/bash/git_functions
+if [ -f ~/dotfiles/bash/git_functions ] ; then
+  source ~/dotfiles/bash/git_functions
+fi
+
+if [[ $TERM != "screen" ]] ; then
+  exec tmux
+fi

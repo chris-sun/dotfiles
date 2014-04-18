@@ -1,12 +1,5 @@
 " Chris Sun's vimrc file
-" An example for a vimrc file.
 "
-" Current plugins installed
-" SnipMate
-" http://www.vim.org/scripts/script.php?script_id=2540
-" % key can find matching if/else/end, def/end, class/end, etc.
-" https://github.com/edsono/vim-matchit
-
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -32,8 +25,37 @@ Bundle 'tomtom/tcomment_vim.git'
 " Can quickly find matching if/else/end, def/end, class/end, etc.
 " by hitting the % key
 Bundle 'edsono/vim-matchit.git'
+" A way to run rspec from vim
+Bundle 'thoughtbot/vim-rspec.git'
+" A tool for sending commands from vim to a specific tmux pane
+Bundle 'jgdavey/tslime.vim.git'
+
+" COLORSCHEMES
 " Color scheme - Solarized (http://ethanschoonover.com/solarized)
 Bundle 'altercation/vim-colors-solarized.git'
+" Another color scheme
+Bundle 'zeis/vim-kolor.git'
+" Another color scheme, molokai
+Bundle 'tomasr/molokai.git'
+" Vividchalk color scheme
+Bundle 'tpope/vim-vividchalk'
+
+" Add/remove quotes/tags around a word or line
+Bundle 'tpope/vim-surround.git'
+" Run Git commands inside vim, (e.g. git annotate, git diff)
+Bundle 'tpope/vim-fugitive.git'
+" Syntax highlighting for CoffeeScript
+Bundle 'kchmck/vim-coffee-script.git'
+" Show buffers in command bar
+Bundle 'bling/vim-bufferline.git'
+" Advanced status bar for vim
+Bundle 'bling/vim-airline.git'
+" Syntax highlighting for Cumcumber
+Bundle 'tpope/vim-cucumber.git'
+" AutoCompletion suggestions
+Bundle 'vim-scripts/AutoComplPop.git'
+" Fuzzy File Finder
+Bundle 'kien/ctrlp.vim'
 
 " Scripts from http://vim-scripts.org/vim/scripts.html
 Bundle 'snipMate'
@@ -67,8 +89,13 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  syntax on
+  " To enable 256 colors in vim
+  set t_Co=256
+  syntax enable
+  set background=dark
+  colorscheme vividchalk
   set hlsearch
+  let g:airline_theme='light'
 endif
 
 " No backup files (a.txt~) or swap files
@@ -110,12 +137,34 @@ set splitright
 " source autoTag.vim
 "
 
-" Use ack as the program for searching
-" Download from http://beyondgrep.com/
-set grepprg=ack
+"""""""""" Search search stuff """"""""""
+" Use the Silver Searcher (ag) for grep/search
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+"""""""""" end Search search stuff """"""""""
+
 
 " Assigning the leader key
 let mapleader = ","
+
+" Typing jj will leave Insert Mode
+" Doing this because the Escape key is far away
+imap jj <Esc>
 
 " Alias ,cc for the :TComment command which comments out lines
 map <Leader>cc :TComment<CR> 
@@ -129,9 +178,30 @@ map <Leader>vu :RVunittest<CR>
 map <Leader>vm :RVmodel<cr>
 map <Leader>vv :RVview<cr>
 
+" This tells vim-rspec to use Send_to_Tmux to run the selected specs.
+let g:rspec_command = 'call Send_to_Tmux("rake spec SPEC={spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("RAILS_ENV=test bin/rake spec SPEC={spec}\n")'
+
+" vim-rspec mappings
+" taken from https://github.com/thoughtbot/dotfiles/blob/master/vimrc 
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" Close a buffer without closing the split
+" See http://stackoverflow.com/questions/4465095/vim-delete-buffer-without-losing-the-split-window
+" map <Leader>c :bp|bd #<CR>
+
 " taken from r00k's vimrc
 " open the vimrc
 map <Leader>vi :tabe ~/.vimrc<CR>
+
+" Highlight any characters after 80th column
+" Purpose is to enforce a limit of 80 characters per line,
+" which is a common coding standard
+" highlight OverLength ctermbg=gray ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
 
 " case-insensitve search
 set ignorecase
