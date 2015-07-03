@@ -24,6 +24,18 @@ if [ -f ~/dotfiles/bash/git_functions ] ; then
   source ~/dotfiles/bash/git_functions
 fi
 
-if [[ $TERM != "screen" ]] ; then
-  exec tmux
+if [ -f ~/bin/git_completion.bash ]; then
+  . ~/bin/git_completion.bash
 fi
+
+if [[ $TERM != "screen" ]] ; then
+ exec tmux
+fi
+
+# Set JAVA_HOME for a Mac on OS 10.7
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# startup virtualenv-burrito
+# if [ -f $HOME/.venvburrito/startup.sh ]; then
+#     . $HOME/.venvburrito/startup.sh
+# fi

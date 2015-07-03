@@ -21,8 +21,9 @@ function gaddmod {
 # Git pull the current branch
 function gpl {
   BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
-  echo "Running git pull origin ${BRANCH}"
+  echo "Running git pull origin ${BRANCH}, then git fetch"
   git pull origin ${BRANCH}
+  git fetch
 }
 
 # Git push the current branch
@@ -30,4 +31,18 @@ function gps {
   BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
   echo "Running git push origin ${BRANCH}"
   git push origin ${BRANCH}
+}
+
+# Git "force" push the current branch
+function gfp {
+  BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
+  if [[ "$BRANCH" == 'development' || "$BRANCH" == 'master' ]] ; then
+    echo "..."
+    echo "YOU SHOULD NOT force push 'development' or 'master' "
+    echo "Please try again ..."
+    echo "..."
+    return 1
+  fi
+  echo "Running git push -f origin ${BRANCH}"
+  git push -f origin ${BRANCH}
 }

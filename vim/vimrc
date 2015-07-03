@@ -54,6 +54,7 @@ Bundle 'bling/vim-airline.git'
 Bundle 'tpope/vim-cucumber.git'
 " AutoCompletion suggestions
 Bundle 'vim-scripts/AutoComplPop.git'
+" Bundle 'git://bitbucket.org/ns10tks/vim-autocomplpop.git'
 " Fuzzy File Finder
 Bundle 'kien/ctrlp.vim'
 
@@ -150,12 +151,14 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" set grepprg=git\ grep\ -i
 " bind K to grep word under cursor
+" Taken from: https://robots.thoughtbot.com/faster-grepping-in-vim
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+nnoremap \ :Ag <SPACE>
 """""""""" end Search search stuff """"""""""
 
 
@@ -179,7 +182,7 @@ map <Leader>vm :RVmodel<cr>
 map <Leader>vv :RVview<cr>
 
 " This tells vim-rspec to use Send_to_Tmux to run the selected specs.
-let g:rspec_command = 'call Send_to_Tmux("rake spec SPEC={spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("bin/rake spec SPEC={spec}\n")'
 " let g:rspec_command = 'call Send_to_Tmux("RAILS_ENV=test bin/rake spec SPEC={spec}\n")'
 
 " vim-rspec mappings

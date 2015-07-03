@@ -14,6 +14,7 @@ alias cda="cd ~/work/camazon"
 alias cdb="cd ~/work/backbone_js_rails"
 alias cde="cd ~/work/backbone_js_rails/example_app"
 alias cdg="cd ~/work/guidespark2"
+alias cdi="cd ~/work/immigrant"
 alias cds="cd ~/work/csandbox"
 alias cdgeo="cd ~/work/thoughtbot/geocoding-on-rails/example_app"
 alias cdgolf="cd ~/work/vimgolf"
@@ -21,6 +22,13 @@ alias cdh="cd ~/work/closed_source/rails/thoughtbot/hashtag"
 alias cdw="cd ~/work"
 alias cdtt="cd /Users/chrissun/work/thoughtbot/tddror/todos"
 alias cdm="cd /Users/chrissun/work/open_source/ruby/small_programs"
+alias cdae="cd ~/Documents/AE_GuideSpark_Project/"
+alias cdar="cd ~/work/autospark-rails/"
+alias cdas="cd ~/work/autospark-scripts/"
+alias cdj="cd ~/work/autospark-scripts/"
+
+# ssh aliases
+alias ssas="ssh deploy@staging1.autospark.guidespark.net"
 
 # Rails aliases
 alias be="bundle exec"
@@ -28,9 +36,11 @@ alias berd="bundle exec rake db:migrate"
 alias berp="bundle exec rake db:test:prepare"
 alias bers="bundle exec rails server"
 alias bi="bundle install"
-alias sole="bundle exec rails console"
+alias sole="bin/rails console"
 alias rk="bundle exec rake"
 alias rkr="bundle exec rake routes"
+alias rr="bin/rails"
+alias rrc="bin/rails console"
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 
 # Git aliases
@@ -38,21 +48,40 @@ alias gst="git status"
 alias gcm="git checkout master"
 alias gco="git commit -m"
 alias gcd="git checkout development"
+alias gck="git checkout"
 alias gsl="git stash list"
 alias gb="git branch"
 alias gd="git diff"
+alias grd="git pull --rebase origin development"
 alias gpom="git pull origin master ; git fetch"
+alias g21="git checkout g2.1"
+alias gg="git grep"
+
+# tmux aliases
+alias tls="tmux list-sessions"
+alias tlw="tmux list-windows"
+alias tks="tmux kill-session -t"
+alias tas="tmux attach -t"
+alias trw="tmux rename-window"
+alias tnw="tmux new-window"
+alias tns="tmux new -s"
+alias tss="tmux switch -t"
+alias vvt="vi ~/.tmux.conf"
+alias ttt="view ~/dotfiles/bash/tmux_cheatsheet.txt"
 
 # RVM stuff
 alias rgl="rvm gemset list"
 alias rlr="rvm list rubies"
 
+# Python aliases
+alias p3="python3"
 
 # Application aliases
 alias vv="vim"
 # alias mm="mvim"
 # Update the ctags file (assuming a Rails project)
-alias ccc="ctags -R -a --exclude=log --exclude=tmp *"
+alias ccc="ctags -R -a --exclude=log --exclude=tmp --exclude=coverage --exclude=vendor *"
+alias cucu="bundle exec cucumber -r features"
 
 # Random
 alias ptest="ping www.google.com"

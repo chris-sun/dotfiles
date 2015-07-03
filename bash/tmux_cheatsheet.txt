@@ -1,0 +1,26 @@
+# Sessions
+
+# creates a new tmux session named session_name
+tmux new -s session_name
+
+# attaches to an existing tmux session named session_name
+tmux attach -t session_name
+
+# switches to an existing session named session_name
+tmux switch -t session_name
+
+# lists existing tmux sessions
+tmux list-sessions
+
+# detach the currently attached session
+tmux detach (prefix + d)
+
+# Windows
+# create a new window
+tmux new-window (prefix + c)
+
+# move to the window based on index
+tmux select-window -t :0-9 (prefix + 0-9)
+
+# rename the current window
+tmux rename-window (prefix + ,)
