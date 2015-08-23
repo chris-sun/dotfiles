@@ -221,3 +221,6 @@ endfunc
 
 " Toggle between relative and absolute line numbers
 nnoremap <Leader>n :call ToggleNumMode()<CR>
+
+" vim-bufferline configurations
+let g:bufferline_echo = 1
