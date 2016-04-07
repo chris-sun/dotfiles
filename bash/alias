@@ -11,6 +11,10 @@ alias cdc="cd ~/work/closed_source"
 alias cdr="cd ~/work/closed_source/ruby"
 alias cda="cd ~/work/camazon"
 alias cdf="cd ~/work/feedr"
+# Prediction Valley project
+alias cdd="cd ~/work/data_admin/"
+# Upcase project
+alias cdp="cd ~/work/photogram/"
 
 alias cdb="cd ~/work/backbone_js_rails"
 alias cde="cd ~/work/backbone_js_rails/example_app"
@@ -31,10 +35,14 @@ alias cdj="cd ~/work/autospark-scripts/"
 
 # ssh aliases
 alias ssas="ssh deploy@staging1.autospark.guidespark.net"
+# PV data admin
+alias ssda='ssh deploy@ec2-52-38-104-170.us-west-2.compute.amazonaws.com'
+alias ssdap='ssh deploy@52.35.178.146'
 
 # Rails aliases
 alias be="bundle exec"
 alias berd="bundle exec rake db:migrate"
+alias rdm="rake db:migrate"
 alias berp="bundle exec rake db:test:prepare"
 alias bers="bundle exec rails server"
 alias bss="bin/spring stop"
@@ -45,6 +53,7 @@ alias rk="bundle exec rake"
 alias rkr="bundle exec rake routes"
 alias rr="bin/rails"
 alias rrc="bin/rails console"
+alias tdd="tail -f log/development.log"
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 
 # Git aliases

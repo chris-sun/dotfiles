@@ -222,5 +222,10 @@ endfunc
 " Toggle between relative and absolute line numbers
 nnoremap <Leader>n :call ToggleNumMode()<CR>
 
+" Toggle between paste and normal modes
+map <Leader>p :set paste<CR>
+map <Leader>o :set nopaste<CR>
+
+
 " vim-bufferline configurations
 let g:bufferline_echo = 1
