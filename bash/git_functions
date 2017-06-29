@@ -15,7 +15,7 @@ function greset {
 
 # Add only the modified files to be staged
 function gaddmod {
-  git status | grep modified | awk '{print $3}' | xargs git add
+  git status | grep modified | awk '{print $2}' | xargs git add
 }
 
 # Git pull the current branch
@@ -31,6 +31,13 @@ function gps {
   BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
   echo "Running git push origin ${BRANCH}"
   git push origin ${BRANCH}
+}
+
+# Git push the current branch to Bitbucket
+function gpb {
+  BRANCH=`git rev-parse --abbrev-ref HEAD | awk '{print $1}'`
+  echo "Running git push bitbucket ${BRANCH}"
+  git push bitbucket ${BRANCH}
 }
 
 # Git "force" push the current branch
