@@ -15,6 +15,15 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+
 """"""""""""""""""""""""
 " List of vim plugins
 """"""""""""""""""""""""
@@ -24,7 +33,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tomtom/tcomment_vim.git'
 " Can quickly find matching if/else/end, def/end, class/end, etc.
 " by hitting the % key
-Bundle 'edsono/vim-matchit.git'
+Bundle 'geoffharcourt/vim-matchit.git'
 " A way to run rspec from vim
 Bundle 'thoughtbot/vim-rspec.git'
 " A tool for sending commands from vim to a specific tmux pane
@@ -63,15 +72,6 @@ Bundle 'scrooloose/syntastic.git'
 " Scripts from http://vim-scripts.org/vim/scripts.html
 Bundle 'snipMate'
 Bundle 'AutoTag'
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
 
 " Enable file type detection and use language-dependent indenting.
 filetype plugin indent on
