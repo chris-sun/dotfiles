@@ -114,5 +114,5 @@ alias ptest="ping www.google.com"
 # Useful for rails testing
 alias ltl="localtunnel -k ~/.ssh/id_rsa.pub"
 alias dc="docker-compose"
-
+alias dpm="mysql -uroot -ppassword -h 127.0.0.1"
 
